@@ -26,6 +26,9 @@
     <Compile Include="controller\led.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="controller\motor.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="controller\__init__.py" />
     <Compile Include="PicoBorgRev.py" />
     <Compile Include="routes\distance.py">
