@@ -23,3 +23,16 @@ def toogleAllOff():
         return "Success"
     else:
         return "not running on a pi or RPi.GPIO library not installed"
+
+def toogleColor(color = None):
+    if GPIOAvailable:
+        if color == '':
+            return "Please choose red, green or blue."
+        elif color == 'red':
+            GPIO.output(RED_PIN, not GPIO.input(RED_PIN))
+        elif color == 'green':
+            GPIO.output(GREEN_PIN, not GPIO.input(GREEN_PIN))
+        elif color == 'blue':
+            GPIO.output(BLUE_PIN, not GPIO.input(BLUE_PIN))
+    else:
+        return "not running on a pi or RPi.GPIO library not installed color: " + color
