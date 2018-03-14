@@ -1,6 +1,6 @@
 try:
     import RPi.GPIO as GPIO
-    GPIOAvailable = true
+    GPIOAvailable = True
 except:
     GPIOAvailable = False
 
