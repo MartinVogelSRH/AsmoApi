@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2024
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "AsmoApi", "AsmoApi\AsmoApi.pyproj", "{091D28C0-2C6C-428B-941F-48462ADCFAD8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{091D28C0-2C6C-428B-941F-48462ADCFAD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{091D28C0-2C6C-428B-941F-48462ADCFAD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {538C1430-596B-4974-9D6E-0B86E44A6B2A}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,106 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>091d28c0-2c6c-428b-941f-48462adcfad8</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>AsmoApi.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>AsmoApi</Name>
+    <RootNamespace>AsmoApi</RootNamespace>
+    <InterpreterId>Global|PythonCore|3.6</InterpreterId>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AsmoApi.py" />
+    <Compile Include="controller\led.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="controller\__init__.py" />
+    <Compile Include="PicoBorgRev.py" />
+    <Compile Include="routes\distance.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="routes\index.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="routes\led.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="routes\motor.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="routes\picture.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="routes\temperature.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="routes\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|PythonCore|3.6" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Install.sh">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\camera.html" />
+    <Content Include="views\index.html" />
+    <Content Include="views\remote.html" />
+    <Content Include="static\streaming\stream-00000555.ts" />
+    <Content Include="static\streaming\stream-00000556.ts" />
+    <Content Include="static\streaming\stream-00000557.ts" />
+    <Content Include="static\streaming\stream-00000558.ts" />
+    <Content Include="static\streaming\stream-00000559.ts" />
+    <Content Include="static\streaming\stream-00000560.ts" />
+    <Content Include="static\streaming\stream-00000561.ts" />
+    <Content Include="static\streaming\stream-00000562.ts" />
+    <Content Include="static\streaming\stream-00000563.ts" />
+    <Content Include="static\streaming\stream-00000564.ts" />
+    <Content Include="static\streaming\stream-00000565.ts" />
+    <Content Include="static\streaming\stream-00000566.ts" />
+    <Content Include="static\streaming\stream.m3u8" />
+    <Content Include="views\terminal.html" />
+    <Content Include="views\test.html" />
+    <Content Include="views\ultraRemote.html" />
+    <Content Include="static\vendor\bootstrap.min.css" />
+    <Content Include="static\vendor\bootstrap.min.js" />
+    <Content Include="static\vendor\font-awesome.min.css" />
+    <Content Include="static\vendor\jquery.min.js" />
+    <Content Include="static\vendor\socket.io-1.4.5.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="C:\Users\marti\OneDrive\SRH Stuff\Applied Research - ASMO\AsmoApi\AsmoApi\static\" />
+    <Folder Include="C:\Users\marti\OneDrive\SRH Stuff\Applied Research - ASMO\AsmoApi\AsmoApi\views\" />
+    <Folder Include="controller\" />
+    <Folder Include="routes\" />
+    <Folder Include="C:\Users\marti\OneDrive\SRH Stuff\Applied Research - ASMO\AsmoApi\AsmoApi\static\streaming\" />
+    <Folder Include="C:\Users\marti\OneDrive\SRH Stuff\Applied Research - ASMO\AsmoApi\AsmoApi\static\vendor\" />
+    <Folder Include="static\" />
+    <Folder Include="static\streaming\" />
+    <Folder Include="static\vendor\" />
+    <Folder Include="views\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>

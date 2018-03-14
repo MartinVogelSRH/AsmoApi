@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="../static/vendor/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/vendor/font-awesome.min.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+    </head>
+    <body>
+
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav nav-pills">
+                        <li class="">
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="camera.html">Kamera</a>
+                        </li>
+                        <li class="">
+                            <a href="remote.html">Fernbedienung</a>
+                        </li>
+                        <li class="">
+                            <a href="ultraRemote.html">Speziell</a>
+                        </li>
+                        <li class="active">
+                            <a href="terminal.html">Terminal</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <br>
+
+            <div class="">
+                <iframe id="term" src="http://10.0.0.1:3000/" width="800" height="600"></iframe>
+
+            </div>
+        </div>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="../static/vendor/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="../static/vendor/bootstrap.min.js"></script>
+        <script src="../static/vendor/socket.io-1.4.5.js"></script>
+
+        <script type="text/javascript">
+        var host = 'http://' + window.location.host + ':3000';
+        document
+            .getElementById("term")
+            .src = host;
+        </script>
+    </body>
+</html>

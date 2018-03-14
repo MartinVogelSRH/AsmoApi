@@ -1,0 +1,22 @@
+import web
+from routes.distance import Distance
+from routes.index import Index
+from routes.led import Led
+from routes.motor import Motor
+from routes.picture import Picture
+from routes.temperature import Temperature
+
+
+
+PossibleUrls = (
+                '/api/motor', 'Motor',
+                '/api/distance', 'Distance',
+                '/api/picture',  'Picture',
+                '/api/led', 'Led',
+                '/api/temperature', 'Temperature',
+                '/(.*)', 'Index',
+                '/', 'Index'
+)
+Server = web.application(PossibleUrls,globals())
+if __name__ == "__main__":
+    Server.run()
