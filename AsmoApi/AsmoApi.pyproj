@@ -57,9 +57,9 @@
     <Content Include="Install.sh">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="abcde\camera.html" />
-    <Content Include="abcde\index.html" />
-    <Content Include="abcde\remote.html" />
+    <Content Include="views\camera.html" />
+    <Content Include="views\index.html" />
+    <Content Include="views\remote.html" />
     <Content Include="static\streaming\stream-00000555.ts" />
     <Content Include="static\streaming\stream-00000556.ts" />
     <Content Include="static\streaming\stream-00000557.ts" />
@@ -73,9 +73,9 @@
     <Content Include="static\streaming\stream-00000565.ts" />
     <Content Include="static\streaming\stream-00000566.ts" />
     <Content Include="static\streaming\stream.m3u8" />
-    <Content Include="abcde\terminal.html" />
-    <Content Include="abcde\test.html" />
-    <Content Include="abcde\ultraRemote.html" />
+    <Content Include="views\terminal.html" />
+    <Content Include="views\test.html" />
+    <Content Include="views\ultraRemote.html" />
     <Content Include="static\vendor\bootstrap.min.css" />
     <Content Include="static\vendor\bootstrap.min.js" />
     <Content Include="static\vendor\font-awesome.min.css" />
@@ -84,7 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="C:\Users\marti\OneDrive\SRH Stuff\Applied Research - ASMO\AsmoApi\AsmoApi\static\" />
-    <Folder Include="C:\Users\marti\OneDrive\SRH Stuff\Applied Research - ASMO\AsmoApi\AsmoApi\abcde\" />
+    <Folder Include="C:\Users\marti\OneDrive\SRH Stuff\Applied Research - ASMO\AsmoApi\AsmoApi\views\" />
     <Folder Include="controller\" />
     <Folder Include="routes\" />
     <Folder Include="C:\Users\marti\OneDrive\SRH Stuff\Applied Research - ASMO\AsmoApi\AsmoApi\static\streaming\" />
