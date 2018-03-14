@@ -7,7 +7,7 @@ except:
 
 if GPIOAvailable:
     PBR1 = PicoBorgRev.PicoBorgRev()
-    PBR1.init()
+    PBR1.Init()
 
 def setMotors (motor1speed, motor2speed):
     if GPIOAvailable:
