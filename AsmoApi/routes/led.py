@@ -8,7 +8,7 @@ class Led(object):
         return controller.led.toogleAllOff()
     def POST(self):
         data = json.loads(web.data())
-        return controller.led.toogleColor(data['color'])
+        return "{\"message:\" \"" + controller.led.toogleColor(data['color']) + "\"}"
 #app.route('/led')
 #        .post(led.toggleLed)
 #        .get(led.turnOff);
