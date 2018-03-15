@@ -1,4 +1,8 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+echo 'Welcome to Asmo setup'
+echo 'First, we will update the apt-get database'
+sudo apt-get -qq update
+echo '----------------'
 echo 'Installing prerequisites for the ASMO Software: web.py'
 sudo pip install web.py
 echo '----------------'
@@ -8,10 +12,9 @@ sudo raspi-config nonint do_camera 0
 sudo raspi-config nonint do_boot_behaviour B1
 echo '----------------'
 echo 'Making the pi ready to read DHT11 Sensors'
-sudo apt-get update
 sudo apt-get -qq -y install build-essential python-dev
 git clone https://github.com/adafruit/Adafruit_Python_DHT.git
-sudo python $DIR/Adafruit_Python_DHT/setup.py install
+(cd $DIR/Adafruit_Python_DHT && exec sudo python setup.py install)
 echo '----------------'
 echo 'Registering ASMO as a service for systemctl'
 echo 'For this, we follow the instructions from https://www.raspberrypi.org/documentation/linux/usage/systemd.md'
