@@ -5,6 +5,7 @@ from routes.led import Led
 from routes.motor import Motor
 from routes.picture import Picture
 from routes.temperature import Temperature
+from routes.shutdown import Shutdown
 
 
 
