@@ -14,6 +14,7 @@ PossibleUrls = (
                 '/api/picture',  'Picture',
                 '/api/led', 'Led',
                 '/api/temperature', 'Temperature',
+                '/api/shutdown', 'Shutdown'
                 '/(.*)', 'Index',
                 '/', 'Index'
 )

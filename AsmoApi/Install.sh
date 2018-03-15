@@ -1,4 +1,4 @@
-echo 'Installingsprerequisited for the ASMO Software: web.py'
+echo 'Installing prerequisites for the ASMO Software: web.py'
 sudo pip install web.py
 echo '----------------'
 echo 'Activating needed settings using raspi-config: I2C, Camera and the default boot behaviour'
@@ -44,7 +44,7 @@ sudo echo "interface=wlan0" > /etc/dnsmasq.conf
 sudo echo "dhcp-range=10.0.0.1,10.0.0.255,255.255.255.0,24h" >> /etc/dnsmasq.conf
 
 sudo echo "interface=wlan0" > /etc/hostapd/hostapd.conf
-sudo echo "driver=rtl871xdrv" >> /etc/hostapd/hostapd.conf
+#sudo echo "driver=rtl8192cu" >> /etc/hostapd/hostapd.conf
 sudo echo "ssid=asmo" >> /etc/hostapd/hostapd.conf
 sudo echo "hw_mode=g" >> /etc/hostapd/hostapd.conf
 sudo echo "channel=6" >> /etc/hostapd/hostapd.conf

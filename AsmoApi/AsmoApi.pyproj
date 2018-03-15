@@ -46,6 +46,9 @@
     <Compile Include="routes\picture.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="routes\shutdown.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="routes\temperature.py">
       <SubType>Code</SubType>
     </Compile>
