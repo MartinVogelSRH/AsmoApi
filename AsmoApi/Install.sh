@@ -14,7 +14,7 @@ echo '----------------'
 echo 'Making the pi ready to read DHT11 Sensors'
 sudo apt-get -qq -y install build-essential python-dev
 git clone https://github.com/adafruit/Adafruit_Python_DHT.git
-(cd $DIR/Adafruit_Python_DHT && exec sudo python setup.py install)
+(cd $DIR/Adafruit_Python_DHT && exec sudo python setup.py install -q)
 echo '----------------'
 echo 'Registering ASMO as a service for systemctl'
 echo 'For this, we follow the instructions from https://www.raspberrypi.org/documentation/linux/usage/systemd.md'
