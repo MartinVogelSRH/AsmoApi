@@ -1,3 +1,4 @@
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 echo 'Installing prerequisites for the ASMO Software: web.py'
 sudo pip install web.py
 echo '----------------'
@@ -6,9 +7,14 @@ sudo raspi-config nonint do_i2c 0
 sudo raspi-config nonint do_camera 0
 sudo raspi-config nonint do_boot_behaviour B1
 echo '----------------'
+echo 'Making the pi ready to read DHT11 Sensors'
+sudo apt-get update
+sudo apt-get -qq -y install build-essential python-dev
+git clone https://github.com/adafruit/Adafruit_Python_DHT.git
+sudo python $DIR/Adafruit_Python_DHT/setup.py install
+echo '----------------'
 echo 'Registering ASMO as a service for systemctl'
 echo 'For this, we follow the instructions from https://www.raspberrypi.org/documentation/linux/usage/systemd.md'
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 SERVICE_FILE="/etc/systemd/system/AsmoAPI.service"
 sudo echo "[Unit]" > $SERVICE_FILE
 sudo echo "Description=Asmo Api" >> $SERVICE_FILE
@@ -31,6 +37,7 @@ echo 'You can check the output by using systemctl status AsmoAPI.service'
 echo '----------------'
 echo 'Setting up the pi to run a WIFI Network'
 echo 'For this, we follow the instructions from https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md'
+
 sudo apt-get -qq -y install dnsmasq hostapd
 sudo systemctl stop dnsmasq
 sudo systemctl stop hostapd

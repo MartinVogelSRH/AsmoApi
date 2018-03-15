@@ -23,10 +23,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AsmoApi.py" />
+    <Compile Include="controller\distance.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="controller\led.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="controller\motor.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="controller\temperature.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="controller\__init__.py" />

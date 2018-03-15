@@ -1,3 +1,4 @@
+
 class Distance(object):
     """description of class"""
     def GET(self):
