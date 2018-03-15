@@ -1,5 +1,6 @@
 try:
     import RPi.GPIO as GPIO
+    import time
     GPIOAvailable = True
 except:
     GPIOAvailable = False
