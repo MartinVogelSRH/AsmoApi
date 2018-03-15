@@ -9,7 +9,7 @@ if GPIOAvailable:
     TRIG_PIN = 21
     ECHO_PIN = 20
     GPIO.setup(TRIG_PIN,GPIO.OUT)
-    GPIO.setup(TRIG_PIN,GPIO.IN)
+    GPIO.setup(ECHO_PIN,GPIO.IN)
 
 
 def getDistance():
