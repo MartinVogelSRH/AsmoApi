@@ -59,4 +59,4 @@ sudo echo "DAEMON_CONF=\"/etc/hostapd/hostapd.conf\"" > /etc/default/hostapd
 sudo systemctl start hostapd
 sudo systemctl start dnsmasq
 
-sudo reboot now
+echo 'Everything done. It is recommended to reboot now by using sudo reboot now'
