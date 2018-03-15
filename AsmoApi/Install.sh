@@ -1,9 +1,11 @@
-echo 'Install prerequisited for the ASMO Software'
+echo 'Installingsprerequisited for the ASMO Software: web.py'
 sudo pip install web.py
+echo '----------------'
+echo 'Activating needed settings using raspi-config: I2C, Camera and the default boot behaviour'
 sudo raspi-config nonint do_i2c 0
 sudo raspi-config nonint do_camera 0
 sudo raspi-config nonint do_boot_behaviour B1
-
+echo '----------------'
 echo 'Registering ASMO as a service for systemctl'
 echo 'For this, we follow the instructions from https://www.raspberrypi.org/documentation/linux/usage/systemd.md'
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -21,13 +23,15 @@ sudo echo "User=pi" >> $SERVICE_FILE
 sudo echo "[Install]" >> $SERVICE_FILE
 sudo echo "WantedBy=multi-user.target" >> $SERVICE_FILE
 
+sudo systemctl daemon-reload
 sudo systemctl start AsmoAPI.service
 sudo systemctl enable AsmoAPI.service
 echo 'ASMO is now installed as AsmoAPI.service in systemctl'
 echo 'You can check the output by using systemctl status AsmoAPI.service'
+echo '----------------'
 echo 'Setting up the pi to run a WIFI Network'
 echo 'For this, we follow the instructions from https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md'
-sudo apt-get install dnsmasq hostapd
+sudo apt-get -qq -y install dnsmasq hostapd
 sudo systemctl stop dnsmasq
 sudo systemctl stop hostapd
 NOW=$(date +"%m_%d_%Y")
@@ -58,5 +62,5 @@ sudo echo "DAEMON_CONF=\"/etc/hostapd/hostapd.conf\"" > /etc/default/hostapd
 
 sudo systemctl start hostapd
 sudo systemctl start dnsmasq
-
+echo '----------------'
 echo 'Everything done. It is recommended to reboot now by using sudo reboot now'
