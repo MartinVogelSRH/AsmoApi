@@ -14,9 +14,8 @@ class Camera(object):
             cam.resolution = (640, 480)
             web.header('Content-type','multipart/x-mixed-replace; boundary=--jpgboundary')
             web.header('Transfer-Encoding','chunked')
-            return gen(cam)
-    def gen(camera):
-        while True:
-            frame = camera.get_frame()
-            yield frame
+            while True:
+                frame = camera.get_frame()
+                yield frame
+        
 #app.route('/pic').post(pic.makePic);
