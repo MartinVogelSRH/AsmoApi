@@ -3,8 +3,8 @@ echo 'Welcome to Asmo setup'
 echo 'First, we will update the apt-get database'
 sudo apt-get -qq update
 echo '----------------'
-echo 'Installing prerequisites for the ASMO Software: web.py'
-sudo pip install web.py
+echo 'Installing prerequisites for the ASMO Software: web.py and picamera'
+sudo pip install web.py picamera
 echo '----------------'
 echo 'Activating needed settings using raspi-config: I2C, Camera and the default boot behaviour'
 sudo raspi-config nonint do_i2c 0

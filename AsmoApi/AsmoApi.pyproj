@@ -23,6 +23,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AsmoApi.py" />
+    <Compile Include="controller\camera.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="controller\distance.py">
       <SubType>Code</SubType>
     </Compile>
@@ -52,7 +55,7 @@
     <Compile Include="routes\motor.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="routes\picture.py">
+    <Compile Include="routes\camera.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="routes\shutdown.py">

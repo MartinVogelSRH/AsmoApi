@@ -3,7 +3,7 @@ from routes.distance import Distance
 from routes.index import Index
 from routes.led import Led
 from routes.motor import Motor
-from routes.picture import Picture
+from routes.camera import Camera
 from routes.temperature import Temperature
 from routes.shutdown import Shutdown
 from routes.favicon import Favicon
@@ -12,7 +12,7 @@ from routes.favicon import Favicon
 PossibleUrls = (
                 '/api/motor', 'Motor',
                 '/api/distance', 'Distance',
-                '/api/picture',  'Picture',
+                '/api/camera',  'Camera',
                 '/api/led', 'Led',
                 '/api/temperature', 'Temperature',
                 '/api/shutdown', 'Shutdown',

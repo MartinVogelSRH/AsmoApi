@@ -56,7 +56,7 @@
             var mjpeg_img;
 
             function reload_img() {
-                mjpeg_img.src = "http://" + window.location.host + "/api/picture"
+                mjpeg_img.src = "http://" + window.location.host + "/api/camera"
             }
             function error_img() {
                 setTimeout("mjpeg_img.src = 'http://" + window.location.host + ":8080/html/cam_pic.php?time=' + new Date().getTime();", 100);
