@@ -16,6 +16,6 @@ class Camera(object):
             #web.header('Content-type','image/jpg')
             cam.start_preview()
             time.sleep(2)
-            cam.capture('/static/current.jpg')
+            cam.capture('../static/current.jpg')
             web.seeother('../static/current.jpg')
 #app.route('/pic').post(pic.makePic);
