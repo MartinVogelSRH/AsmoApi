@@ -1,5 +1,6 @@
 import web
-
+import time
+from io import BytesIO
 try:
     import picamera
     GPIOAvailable = True
@@ -10,12 +11,13 @@ class Camera(object):
     """description of class"""
     def GET(self):
         if GPIOAvailable:
+            stream = BytesIO()
             cam = picamera.PiCamera()
             cam.resolution = (640, 480)
-            web.header('Content-type','multipart/x-mixed-replace; boundary=--jpgboundary')
+            web.header('Content-type','image/jgp')
             web.header('Transfer-Encoding','chunked')
-            while True:
-                frame = camera.get_frame()
-                yield frame
-        
+            cam.start_preview()
+            time.sleep(2)
+            camera.capture(stream, format='jpeg')
+            return stream
 #app.route('/pic').post(pic.makePic);
