@@ -73,6 +73,7 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="static\favicon.ico" />
+    <Content Include="static\test.jpg" />
     <Content Include="views\camera.html" />
     <Content Include="views\index.html" />
     <Content Include="views\remote.html" />
