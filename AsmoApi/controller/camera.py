@@ -10,6 +10,6 @@ except:
 def getDistance():
     if GPIOAvailable:
         camera = picamera.Camera()
-        return controller.
+        return 'Test'
     else:
         return "Not running on a pi or picamera library not installed"
