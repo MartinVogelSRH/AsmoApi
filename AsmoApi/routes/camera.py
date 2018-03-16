@@ -18,6 +18,6 @@ class Camera(object):
             web.header('Transfer-Encoding','chunked')
             cam.start_preview()
             time.sleep(2)
-            camera.capture(stream, format='jpeg')
+            cam.capture(stream, format='jpeg')
             return stream
 #app.route('/pic').post(pic.makePic);
