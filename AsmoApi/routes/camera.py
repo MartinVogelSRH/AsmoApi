@@ -18,11 +18,11 @@ class Camera(object):
             web.header('Content-type','image/jpg')
             cam.start_preview()
             time.sleep(2)
-            camera.capture(stream, format='jpeg')
+            cam.capture(stream, format='jpeg')
             #cam.capture('/home/pi/Asmo/AsmoApi/AsmoApi/static/current.jpg')
             cam.close()
             stream.seek(0)
-            image = Image.open(stream)
-            return image
+            #image = Image.open(stream)
+            return stream
             #web.seeother('../static/current.jpg')
 #app.route('/pic').post(pic.makePic);
