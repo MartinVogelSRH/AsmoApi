@@ -9,7 +9,7 @@ if GPIOAvailable:
     GPIO.setmode(GPIO.BCM)
     TRIG_PIN = 21
     ECHO_PIN = 20
-    GPIO.setup(TRIG_PIN,GPIO.OUT)
+    GPIO.setup(TRIG_PIN,GPIO.OUT, initial=GPIO.LOW)
     GPIO.setup(ECHO_PIN,GPIO.IN)
 
 
@@ -30,7 +30,7 @@ def getDistance():
 
         pulse_duration = pulse_end - pulse_start #Get pulse duration to a variable
 
-        distance = pulse_duration * 17150        #Multiply pulse duration by 17150 to get distance
+        distance = pulse_duration * 17150        #Multiply pulse duration by 17150 (speed of sound in air / 2) to get distance
         distance = round(distance, 2)            #Round to two decimal points
 
         if distance > 2 and distance < 400:      #Check whether the distance is within range

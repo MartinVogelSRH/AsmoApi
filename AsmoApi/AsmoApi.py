@@ -6,7 +6,7 @@ from routes.motor import Motor
 from routes.picture import Picture
 from routes.temperature import Temperature
 from routes.shutdown import Shutdown
-
+from routes.favicon import Favicon
 
 
 PossibleUrls = (
@@ -16,6 +16,7 @@ PossibleUrls = (
                 '/api/led', 'Led',
                 '/api/temperature', 'Temperature',
                 '/api/shutdown', 'Shutdown',
+                '/favicon.ico', 'Favicon',
                 '/(.*)', 'Index',
                 '/', 'Index'
 )

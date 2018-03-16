@@ -40,6 +40,9 @@
     <Compile Include="routes\distance.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="routes\favicon.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="routes\index.py">
       <SubType>Code</SubType>
     </Compile>
@@ -69,6 +72,7 @@
     <Content Include="Install.sh">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="static\favicon.ico" />
     <Content Include="views\camera.html" />
     <Content Include="views\index.html" />
     <Content Include="views\remote.html" />

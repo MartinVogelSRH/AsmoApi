@@ -5,10 +5,14 @@ import web
 class Led(object):
     """description of class"""
     def GET(self):
-        return controller.led.toogleAllOff()
+        dictToReturn = {'message': controller.led.toogleAllOff()}
+        web.header('Content-Type', 'application/json')
+        return json.dumps(dictToReturn)
     def POST(self):
         data = json.loads(web.data())
-        return "{\"message:\" \"" + controller.led.toogleColor(data['color']) + "\"}"
+        dictToReturn = {'message': controller.led.toogleColor(data['color'])}
+        web.header('Content-Type', 'application/json')
+        return json.dumps(dictToReturn)
 #app.route('/led')
 #        .post(led.toggleLed)
 #        .get(led.turnOff);
