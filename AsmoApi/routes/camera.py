@@ -16,13 +16,16 @@ class Camera(object):
             cam = picamera.PiCamera()
             cam.resolution = (640, 480)
             web.header('Content-type','image/jpg')
+            web.header('Transfer-Encoding','chunked') 
             cam.start_preview()
             time.sleep(2)
-            cam.capture(stream, format='jpeg')
-            #cam.capture('/home/pi/Asmo/AsmoApi/AsmoApi/static/current.jpg')
-            cam.close()
-            stream.seek(0)
-            #image = Image.open(stream)
-            return stream
-            #web.seeother('../static/current.jpg')
+            for i in range (0,60,1):
+                cam.capture(stream, format='jpeg')
+                #cam.capture('/home/pi/Asmo/AsmoApi/AsmoApi/static/current.jpg')
+                cam.close()
+                stream.seek(0)
+                time.sleep(1)
+                #image = Image.open(stream)
+                yield stream
+                #web.seeother('../static/current.jpg')
 #app.route('/pic').post(pic.makePic);
