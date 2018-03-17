@@ -53,7 +53,7 @@ class Camera(object):
     def getOneWithHelper(self):
         if GPIOAvailable:
             web.header('Content-type','image/jpg')
-            yield CameraHelper().get_frame();
+            return CameraHelper().get_frame();
     def GET(self,name):
         if name == 'SinglePic':
             yield self.getOneWithHelper()
@@ -62,6 +62,7 @@ class Camera(object):
             web.header('Transfer-Encoding','chunked') 
             while True:
                 frame = CameraHelper().get_frame()
-                yield (b'--frame\r\n' +frame +  b'\r\n\r\n') 
+                yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
         else:
             yield 'undefined'
