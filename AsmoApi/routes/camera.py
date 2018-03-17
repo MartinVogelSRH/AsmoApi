@@ -1,7 +1,7 @@
 import web
 import time
 from io import BytesIO
-from controller.camera import Camera
+from controller.camera import Camera as CameraController
 try:
     import picamera
     GPIOAvailable = True
@@ -13,9 +13,8 @@ class Camera(object):
     def GET(self):
         return 'please use this API with /SinglePicture or /Stream'
     def getOneWithHelper(self):
-        if GPIOAvailable:
-            web.header('Content-type','image/jpg')
-            return Camera().get_frame()
+        web.header('Content-type','image/jpg')
+        return CameraController().get_frame()
 
     def GET(self,name):
         if name == 'SinglePicture':
@@ -24,7 +23,7 @@ class Camera(object):
             web.header('Content-type','multipart/x-mixed-replace; boundary=frame')
             web.header('Transfer-Encoding','chunked') 
             while True:
-                frame = Camera().get_frame()
+                frame = CameraController().get_frame()
                 yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
         else:

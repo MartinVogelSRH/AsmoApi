@@ -31,30 +31,34 @@ class Camera(object):
 
     @classmethod
     def _thread(cls):
-        with picamera.PiCamera() as camera:
-            # camera setup
-            camera.resolution = (320, 240)
-            camera.hflip = True
-            camera.vflip = True
+        if GPIOAvailable:
+            with picamera.PiCamera() as camera:
+                # camera setup
+                camera.resolution = (320, 240)
+                camera.hflip = True
+                camera.vflip = True
 
-            # let camera warm up
-            camera.start_preview()
-            time.sleep(2)
+                # let camera warm up
+                camera.start_preview()
+                time.sleep(2)
 
-            stream = io.BytesIO()
-            for foo in camera.capture_continuous(stream, 'jpeg',
-                                                 use_video_port=True):
-                # store frame
-                stream.seek(0)
-                cls.frame = stream.read()
+                stream = io.BytesIO()
+                for foo in camera.capture_continuous(stream, 'jpeg',
+                                                     use_video_port=True):
+                    # store frame
+                    stream.seek(0)
+                    cls.frame = stream.read()
 
-                # reset stream for next frame
-                stream.seek(0)
-                stream.truncate()
+                    # reset stream for next frame
+                    stream.seek(0)
+                    stream.truncate()
 
-                # if there hasn't been any clients asking for frames in
-                # the last 10 seconds stop the thread
-                if time.time() - cls.last_access > 10:
-                    break
-        cls.thread = None
+                    # if there hasn't been any clients asking for frames in
+                    # the last 10 seconds stop the thread
+                    if time.time() - cls.last_access > 10:
+                        break
+            cls.thread = None
+        else:
+            cls.frame = 'empty'
+            cls.thread = None
 
