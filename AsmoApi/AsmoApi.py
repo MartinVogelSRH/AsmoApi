@@ -21,6 +21,7 @@ PossibleUrls = (
                 '/(.*)', 'Index',
                 '/', 'Index'
 )
-Server = web.application(PossibleUrls,globals())
+
 if __name__ == "__main__":
+    Server = web.application(PossibleUrls,globals())
     Server.run()
