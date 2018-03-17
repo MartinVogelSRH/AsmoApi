@@ -6,5 +6,3 @@ class Temperature(object):
         dictToReturn = {'message': controller.temperature.getTempAndHum()}
         web.header('Content-Type', 'application/json')
         return json.dumps(dictToReturn)
-
-#app.route('/temp').get(temp.get);

@@ -13,6 +13,3 @@ class Led(object):
         dictToReturn = {'message': controller.led.toogleColor(data['color'])}
         web.header('Content-Type', 'application/json')
         return json.dumps(dictToReturn)
-#app.route('/led')
-#        .post(led.toggleLed)
-#        .get(led.turnOff);

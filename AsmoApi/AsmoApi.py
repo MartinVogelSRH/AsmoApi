@@ -7,7 +7,7 @@ from routes.camera import Camera
 from routes.temperature import Temperature
 from routes.shutdown import Shutdown
 from routes.favicon import Favicon
-
+import controller.led
 
 PossibleUrls = (
                 '/api/motor', 'Motor',
@@ -25,3 +25,4 @@ PossibleUrls = (
 if __name__ == "__main__":
     Server = web.application(PossibleUrls,globals())
     Server.run()
+    controller.led.toogleColor('green')

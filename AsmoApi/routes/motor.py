@@ -14,4 +14,3 @@ class Motor(object):
         dictToReturn = {'message': controller.motor.setMotors(motor1speed, motor2speed)}
         web.header('Content-Type', 'application/json')
         return json.dumps(dictToReturn)
-    #app.route('/motor').post(motor.setMotorSequenz);
