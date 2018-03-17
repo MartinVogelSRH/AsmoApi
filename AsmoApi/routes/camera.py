@@ -22,8 +22,8 @@ class Camera(object):
             for foo in cam.capture_continuous(stream, 'jpeg', use_video_port=True):
                 stream.seek(0)
                 #time.sleep(1)
-                image = Image.open(stream)
-                yield image.toString()
+                #image = Image.open(stream)
+                yield stream.read()
                 #web.seeother('../static/current.jpg')
 #app.route('/pic').post(pic.makePic);
 
