@@ -1,5 +1,6 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 echo 'Welcome to Asmo setup'
+echo 'Please note that the initial setup requires an active internet connection.'
 echo 'First, we will update the apt-get database'
 sudo apt-get -qq update
 echo '----------------'
