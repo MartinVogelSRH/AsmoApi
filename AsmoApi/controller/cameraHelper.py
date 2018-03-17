@@ -1,8 +1,14 @@
 import time
-import picamera
+try:
+    import picamera
+    GPIOAvailable = True
+except:
+    GPIOAvailable = False
+
 import io
 import threading
 class CameraHelper(object):
+
     """description of class"""
     thread = None  # background thread that reads frames from camera
     frame = None  # current frame is stored here by background thread

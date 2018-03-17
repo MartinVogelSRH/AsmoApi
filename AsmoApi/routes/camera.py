@@ -58,6 +58,10 @@ class Camera(object):
         if name == 'SinglePic':
             return self.getOneWithHelper()
         elif name =='Stream':
-            return 'Stream'
+            web.header('Content-type','image/jpg')
+            web.header('Transfer-Encoding','chunked') 
+            while True:
+                frame = CameraHelper().get_frame()
+                yield frame
         else:
             return 'undefined'
