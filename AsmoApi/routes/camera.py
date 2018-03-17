@@ -15,15 +15,20 @@ class Camera(object):
             stream = BytesIO()
             cam = picamera.PiCamera()
             cam.resolution = (640, 480)
-            web.header('Content-type','video/mp4')
+            #web.header('Content-type','video/mp4')
+            web.header('mimetype', 'multipart/x-mixed-replace; boundary=frame')
             web.header('Transfer-Encoding','chunked') 
             cam.start_preview()
             time.sleep(2)
-            for foo in cam.capture_continuous(stream, 'jpeg', use_video_port=True):
+            for foo in cam.capture_continuous(stream, 'jpeg'):
                 stream.seek(0)
                 #time.sleep(1)
-                #image = Image.open(stream)
-                yield stream.read()
+                image = Image.open(stream)
+                stream.seek(0)
+                stream.truncate()
+                yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + image.tobyte() + b'\r\n\r\n')
+                #yield stream.read()
+
                 #web.seeother('../static/current.jpg')
 #app.route('/pic').post(pic.makePic);
 
