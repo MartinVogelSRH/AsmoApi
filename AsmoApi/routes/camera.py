@@ -11,7 +11,7 @@ except:
 class Camera(object):
     """description of class"""
     def GET(self):
-        return "please use this API with /SinglePicture or /Stream"
+        return 'please use this API with /SinglePicture or /Stream'
     def getOneWithHelper(self):
         if GPIOAvailable:
             web.header('Content-type','image/jpg')
@@ -28,4 +28,4 @@ class Camera(object):
                 yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
         else:
-            yield 'undefined'
+            yield 'please use this API with /SinglePicture or /Stream'
