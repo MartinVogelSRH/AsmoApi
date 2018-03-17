@@ -1,8 +1,9 @@
 import time
 import io
 import threading
-import picamera
 
+try:
+    import picamera
 
 class CameraHelper(object):
     """description of class"""

@@ -13,6 +13,7 @@ PossibleUrls = (
                 '/api/motor', 'Motor',
                 '/api/distance', 'Distance',
                 '/api/camera',  'Camera',
+                '/api/camera/(.*)',  'Camera',
                 '/api/led', 'Led',
                 '/api/temperature', 'Temperature',
                 '/api/shutdown', 'Shutdown',

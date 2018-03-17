@@ -1,7 +1,6 @@
 import web
 import time
 from io import BytesIO
-from PIL import Image
 from controller.cameraHelper import CameraHelper
 
 try:
@@ -34,7 +33,7 @@ class Camera(object):
                 #web.seeother('../static/current.jpg')
 #app.route('/pic').post(pic.makePic);
 
-    def getone():
+    def getOne():
         if GPIOAvailable:
             stream = BytesIO()
             cam = picamera.PiCamera()
@@ -50,3 +49,10 @@ class Camera(object):
             #image = Image.open(stream)
             return stream
             #web.seeother('../static/current.jpg')
+    def GET(self,name):
+        if name == 'SinglePic':
+            return 'Single Picture'
+        elif name =='Stream':
+            return 'Stream'
+        else:
+            return 'undefined'
