@@ -1,4 +1,7 @@
-
+import time
+import picamera
+import io
+import threading
 class CameraHelper(object):
     """description of class"""
     thread = None  # background thread that reads frames from camera

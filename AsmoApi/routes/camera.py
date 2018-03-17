@@ -50,13 +50,13 @@ class Camera(object):
             return stream
             #web.seeother('../static/current.jpg')
 
-    def getOneWithHelper():
+    def getOneWithHelper(self):
         if GPIOAvailable:
             web.header('Content-type','image/jpg')
-            return CameraHelper.get_frame();
+            return CameraHelper().get_frame();
     def GET(self,name):
         if name == 'SinglePic':
-            return getOneWithHelper()
+            return self.getOneWithHelper()
         elif name =='Stream':
             return 'Stream'
         else:
