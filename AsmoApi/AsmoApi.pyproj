@@ -23,7 +23,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AsmoApi.py" />
-    <Compile Include="controller\camera2.py">
+    <Compile Include="controller\camera.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="controller\distance.py">
