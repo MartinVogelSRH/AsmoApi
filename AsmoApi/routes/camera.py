@@ -15,7 +15,7 @@ class Camera(object):
             stream = BytesIO()
             cam = picamera.PiCamera()
             cam.resolution = (640, 480)
-            web.header('Content-type','image/jpg')
+            web.header('Content-type','video/mp4')
             web.header('Transfer-Encoding','chunked') 
             cam.start_preview()
             time.sleep(2)
