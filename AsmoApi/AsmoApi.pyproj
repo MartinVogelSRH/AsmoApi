@@ -26,6 +26,9 @@
     <Compile Include="controller\camera.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="controller\cameraHelper.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="controller\distance.py">
       <SubType>Code</SubType>
     </Compile>

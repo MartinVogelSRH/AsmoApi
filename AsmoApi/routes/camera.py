@@ -2,6 +2,8 @@ import web
 import time
 from io import BytesIO
 from PIL import Image
+from controller.cameraHelper import CameraHelper
+
 try:
     import picamera
     GPIOAvailable = True
@@ -12,21 +14,20 @@ class Camera(object):
     """description of class"""
     def GET(self):
         if GPIOAvailable:
-            stream = BytesIO()
-            cam = picamera.PiCamera()
-            cam.resolution = (640, 480)
             web.header('Content-type','video/mp4')
             #web.header('mimetype', 'multipart/x-mixed-replace; boundary=frame')
             web.header('Transfer-Encoding','chunked') 
-            cam.start_preview()
-            time.sleep(2)
-            for foo in cam.capture_continuous(stream, 'jpeg'):
-                stream.seek(0)
-                #time.sleep(1)
-                image = Image.open(stream)
-                stream.seek(0)
-                stream.truncate()
-                yield image.tobytes()
+            starttime = time.time()
+            while True:
+                frame = CameraHelper().get_frame()
+                yield frame
+            #for foo in cam.capture_continuous(stream, 'jpeg'):
+            #    stream.seek(0)
+            #    #time.sleep(1)
+            #    image = Image.open(stream)
+            #    stream.seek(0)
+            #    stream.truncate()
+            #    yield image.tobytes()
                 #yield (b'--frame\r\n' b'Content-Type: video/mp4\r\n\r\n' + image.tobytes() + b'\r\n\r\n')
                 #yield stream.read()
 
