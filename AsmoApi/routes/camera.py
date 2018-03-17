@@ -53,15 +53,15 @@ class Camera(object):
     def getOneWithHelper(self):
         if GPIOAvailable:
             web.header('Content-type','image/jpg')
-            return CameraHelper().get_frame();
+            yield CameraHelper().get_frame();
     def GET(self,name):
         if name == 'SinglePic':
-            return self.getOneWithHelper()
+            yield self.getOneWithHelper()
         elif name =='Stream':
-            web.header('Content-type','image/jpg')
+            web.header('Content-type','video/mp4')
             web.header('Transfer-Encoding','chunked') 
             while True:
                 frame = CameraHelper().get_frame()
                 yield frame
         else:
-            return 'undefined'
+            yield 'undefined'

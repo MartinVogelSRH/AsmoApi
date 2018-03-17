@@ -132,10 +132,10 @@
             }
 
             function reload_img() {
-                mjpeg_img.src = "http://" + window.location.host + "/api/camera"
+                mjpeg_img.src = "http://" + window.location.host + "/api/camera/Stream"
             }
             function error_img() {
-                setTimeout("mjpeg_img.src = 'http://" + window.location.host + "/api/picture", 100);
+                setTimeout("mjpeg_img.src = 'http://" + window.location.host + "/api/camera/test", 100);
             }
             function init() {
                 mjpeg_img = document.getElementById("mjpeg_dest");
