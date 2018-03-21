@@ -27,7 +27,6 @@ def getDistance():
             pulse_start = time.time()                  #Saves the last known time of LOW pulse
             if (time.time() - starttime) > 0.1:
                 abort = True   
-            #print (str(time.time() - pulse_start) + " " + str(abort))         
         
         pulse_end = time.time()
         while GPIO.input(ECHO_PIN)==1 and abort==False:               #Check whether the ECHO is HIGH
@@ -41,7 +40,7 @@ def getDistance():
         distance = round(distance, 2)            #Round to two decimal points
         
         if abort:
-            return 'Aborted'
+            return 'No Sensor available or out of Range. Reading Aborted'
         elif distance > 2 and distance < 400:      #Check whether the distance is within range
             return str(distance - 0.5) + " cm"  #Print distance with 0.5 cm calibration
         else:

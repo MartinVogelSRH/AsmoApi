@@ -23,6 +23,12 @@ PossibleUrls = (
 )
 
 if __name__ == "__main__":
-    Server = web.application(PossibleUrls,globals())
-    Server.run()
+    controller.led.toogleAllOff()
     controller.led.toogleColor('green')
+    Server = web.application(PossibleUrls,globals())
+    try:
+        Server.run()
+    except Exception as e:
+        print('An Error occurred:\n' + str(e))
+        controller.led.toogleAllOff()
+        controller.led.toogleColor('red')
