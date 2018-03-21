@@ -25,20 +25,22 @@ def getDistance():
         starttime = time.time()
         while GPIO.input(ECHO_PIN)==0 and not abort:   #Check whether the ECHO is LOW
             pulse_start = time.time()                  #Saves the last known time of LOW pulse
-            if starttime - time.time() > 50:
+            if pulse_start - time.time() > 50:
                 abort = True              
         abort = False
         while GPIO.input(ECHO_PIN)==1 and not abort:               #Check whether the ECHO is HIGH
             pulse_end = time.time()                  #Saves the last known time of HIGH pulse 
-            if starttime - time.time() > 50:
+            if pulse_start - time.time() > 50:
                 abort = True             
 
         pulse_duration = pulse_end - pulse_start #Get pulse duration to a variable
 
         distance = pulse_duration * 17150        #Multiply pulse duration by 17150 (speed of sound in air / 2) to get distance
         distance = round(distance, 2)            #Round to two decimal points
-
-        if distance > 2 and distance < 400:      #Check whether the distance is within range
+        
+        if abort:
+            return 'Aborted'
+        elif distance > 2 and distance < 400:      #Check whether the distance is within range
             return str(distance - 0.5) + " cm"  #Print distance with 0.5 cm calibration
         else:
             return "Out Of Range"                   #display out of range
