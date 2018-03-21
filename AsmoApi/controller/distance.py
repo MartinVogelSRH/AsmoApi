@@ -25,9 +25,11 @@ def getDistance():
         starttime = time.time()
         while GPIO.input(ECHO_PIN)==0 and abort==False:   #Check whether the ECHO is LOW
             pulse_start = time.time()                  #Saves the last known time of LOW pulse
-            if (time.time() - pulse_start) > 0.1:
-                abort = True              
+            if (time.time() - starttime) > 0.1:
+                abort = True   
+            print (str(time.time() - pulse_start) + " " + str(abort))         
         abort = False
+        pulse_end = time.time()
         while GPIO.input(ECHO_PIN)==1 and abort==False:               #Check whether the ECHO is HIGH
             pulse_end = time.time()                  #Saves the last known time of HIGH pulse 
             if (time.time() - pulse_start) > 0.1:
