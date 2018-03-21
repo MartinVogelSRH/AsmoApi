@@ -21,12 +21,17 @@ def getDistance():
         GPIO.output(TRIG_PIN, True)                  #Set TRIG as HIGH
         time.sleep(0.00001)                      #Delay of 0.00001 seconds
         GPIO.output(TRIG_PIN, False)                 #Set TRIG as LOW
-
-        while GPIO.input(ECHO_PIN)==0:               #Check whether the ECHO is LOW
-            pulse_start = time.time()              #Saves the last known time of LOW pulse
-
-        while GPIO.input(ECHO_PIN)==1:               #Check whether the ECHO is HIGH
-            pulse_end = time.time()                #Saves the last known time of HIGH pulse 
+        abort = False
+        starttime = time.time()
+        while GPIO.input(ECHO_PIN)==0 and not abort:   #Check whether the ECHO is LOW
+            pulse_start = time.time()                  #Saves the last known time of LOW pulse
+            if starttime - time.time() > 50:
+                abort = True              
+        abort = False
+        while GPIO.input(ECHO_PIN)==1 and not abort:               #Check whether the ECHO is HIGH
+            pulse_end = time.time()                  #Saves the last known time of HIGH pulse 
+            if starttime - time.time() > 50:
+                abort = True             
 
         pulse_duration = pulse_end - pulse_start #Get pulse duration to a variable
 

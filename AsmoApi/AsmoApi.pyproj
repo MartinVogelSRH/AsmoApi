@@ -113,6 +113,7 @@
     <Folder Include="static\streaming\" />
     <Folder Include="static\vendor\" />
     <Folder Include="C:\Users\marti\OneDrive\SRH Stuff\Applied Research - ASMO\AsmoApi\AsmoApi\views\" />
+    <Folder Include="views\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

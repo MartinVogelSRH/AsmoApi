@@ -24,7 +24,7 @@ sudo echo "[Unit]" > $SERVICE_FILE
 sudo echo "Description=Asmo Api" >> $SERVICE_FILE
 sudo echo "After=network.target" >> $SERVICE_FILE
 sudo echo "[Service]" >> $SERVICE_FILE
-sudo echo "ExecStart=/usr/bin/python ${DIR}/AsmoApi.py 80" >> $SERVICE_FILE
+sudo echo "ExecStart=/usr/bin/python ${DIR}/AsmoApi.py" >> $SERVICE_FILE
 sudo echo "WorkingDirectory=${DIR}" >> $SERVICE_FILE
 sudo echo "StandardOutput=inherit" >> $SERVICE_FILE
 sudo echo "StandardError=inherit" >> $SERVICE_FILE
