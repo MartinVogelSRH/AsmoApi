@@ -26,7 +26,7 @@ class DistanceController(object):
             # start background frame thread
             DistanceController.thread = threading.Thread(target=self._thread)
             DistanceController.thread.start()
-
+            self.currentDist = None
             # wait until frames start to be available
             while self.currentDist is None:
                 time.sleep(0)
