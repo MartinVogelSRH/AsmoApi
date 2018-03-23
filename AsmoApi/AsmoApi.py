@@ -8,7 +8,7 @@ from routes.temperature import Temperature
 from routes.shutdown import Shutdown
 from routes.favicon import Favicon
 import controller.led
-
+import time
 
 PossibleUrls = (
                 '/api/motor', 'Motor',
@@ -41,5 +41,6 @@ if __name__ == "__main__":
         print('An Error occurred:\n' + str(e))
         controller.led.toogleAllOff()
         controller.led.toogleColor('red')
+        time.sleep(5)
     finally:
         cleanup()
