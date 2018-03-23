@@ -73,6 +73,7 @@ class DistanceController(object):
                     cls.currentDist = str(distance - 0.5) + " cm"  #Print distance with 0.5 cm calibration
                 else:
                     cls.currentDist = "Out Of Range"                   #display out of range
-            cls.currentDist = None
+            cls.thread = None
         else:
             cls.currentDist = "Not running on a pi or RPi.GPIO library not installed"
+            cls.thread = None
