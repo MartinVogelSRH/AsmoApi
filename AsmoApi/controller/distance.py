@@ -38,7 +38,8 @@ class DistanceController(object):
     @classmethod
     def _thread(cls):
         if GPIOAvailable:
-            while (time.time() - cls.last_access < 10) and (controller.motor.getMotors()['motor1speed'] != 0):
+            while (time.time() - cls.last_access < 10) or (controller.motor.getMotors()['motor1speed'] != 0):
+                print ('reding dist..')
                 GPIO.output(TRIG_PIN, False)                 #Set TRIG as LOW
                 time.sleep(2)                            #Delay of 2 seconds
 
