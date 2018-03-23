@@ -39,7 +39,7 @@ class DistanceController(object):
     def _thread(cls):
         if GPIOAvailable:
             motor1speed , motor2speed = controller.motor.getMotors()
-            while (time.time() - cls.last_access < 10) or (motor1speed != 0) or (motor2speed != 0) :
+            while ((time.time() - cls.last_access < 10) or (motor1speed != 0) or (motor2speed != 0)):
                 print ('motor1: ' + str(motor1speed) + ' motor2: ' + str(motor2speed) + ' reding dist..')
                 GPIO.output(TRIG_PIN, False)                 #Set TRIG as LOW
                 time.sleep(2)                            #Delay of 2 seconds
