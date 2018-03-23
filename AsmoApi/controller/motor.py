@@ -23,3 +23,8 @@ def setMotors (motor1speed = 0, motor2speed = 0):
     else:
         print("not running on a pi. Motor 1 would have been set to: " + str(motor1speed) + " Motor 2 would have been set to: " + str(motor2speed))
         return "not running on a pi. Motor 1 would have been set to: " + str(motor1speed) + " Motor 2 would have been set to: " + str(motor2speed)
+
+def getMotors():
+    motor1speed = PBR1.GetMotor1()
+    motor2speed = PBR1.GetMotor2()
+    return motor1speed,motor2speed
