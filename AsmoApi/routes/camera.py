@@ -1,7 +1,7 @@
 import web
 import time
 from io import BytesIO
-from controller.camera import Camera as CameraController
+from controller.camera import CameraController
 try:
     import picamera
     GPIOAvailable = True

@@ -8,6 +8,7 @@ from routes.temperature import Temperature
 from routes.shutdown import Shutdown
 from routes.favicon import Favicon
 import controller.led
+import atexit
 
 PossibleUrls = (
                 '/api/motor', 'Motor',
@@ -22,7 +23,16 @@ PossibleUrls = (
                 '/', 'Index'
 )
 
+def cleaning():
+    print('cleanup')
+    try:
+        import RPi.GPIO as GPIO
+        GPIO.cleanup()
+    except:
+        print('nothing')
+
 if __name__ == "__main__":
+    atexit.register(cleaning)
     controller.led.toogleAllOff()
     controller.led.toogleColor('green')
     Server = web.application(PossibleUrls,globals())
@@ -32,3 +42,4 @@ if __name__ == "__main__":
         print('An Error occurred:\n' + str(e))
         controller.led.toogleAllOff()
         controller.led.toogleColor('red')
+

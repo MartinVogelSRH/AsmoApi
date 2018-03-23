@@ -2,7 +2,6 @@ try:
     import RPi.GPIO as GPIO
     import controller.motor
     import time
-    import threading
     GPIOAvailable = True
 except:
     GPIOAvailable = False
@@ -13,14 +12,6 @@ if GPIOAvailable:
     ECHO_PIN = 20
     GPIO.setup(TRIG_PIN,GPIO.OUT, initial=GPIO.LOW)
     GPIO.setup(ECHO_PIN,GPIO.IN)
-
-class DistanceController(object):
-
-    """description of class"""
-    thread = None  # background thread that reads frames from camera
-    frame = None  # current frame is stored here by background thread
-    last_access = 0  # time of last client access to the camera
-
 
 
 def getDistance():

@@ -26,6 +26,7 @@
     <Compile Include="controller\camera.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="controller\distance_old.py" />
     <Compile Include="controller\distance.py">
       <SubType>Code</SubType>
     </Compile>
@@ -75,8 +76,9 @@
     <Content Include="Install.sh">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="static\Asmo.jpg" />
+    <Content Include="static\Asmo_Favicon.jpg" />
     <Content Include="static\favicon.ico" />
-    <Content Include="static\test.jpg" />
     <Content Include="views\camera.html" />
     <Content Include="views\index.html" />
     <Content Include="views\remote.html" />

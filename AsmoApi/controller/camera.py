@@ -7,7 +7,7 @@ except:
 
 import io
 import threading
-class Camera(object):
+class CameraController(object):
 
     """description of class"""
     thread = None  # background thread that reads frames from camera
@@ -15,17 +15,17 @@ class Camera(object):
     last_access = 0  # time of last client access to the camera
 
     def initialize(self):
-        if Camera.thread is None:
+        if CameraController.thread is None:
             # start background frame thread
-            Camera.thread = threading.Thread(target=self._thread)
-            Camera.thread.start()
+            CameraController.thread = threading.Thread(target=self._thread)
+            CameraController.thread.start()
 
             # wait until frames start to be available
             while self.frame is None:
                 time.sleep(0)
 
     def get_frame(self):
-        Camera.last_access = time.time()
+        CameraController.last_access = time.time()
         self.initialize()
         return self.frame
 
@@ -59,6 +59,11 @@ class Camera(object):
                         break
             cls.thread = None
         else:
-            cls.frame = 'empty'
+            try:
+                with open('static/Asmo.jpg', 'rb') as staticPic:
+                    cls.frame = staticPic.read()
+            except:
+                cls.frame = 'error'
+            #cls.frame = open('static/Asmo.jpg', 'rb').read()
             cls.thread = None
 
