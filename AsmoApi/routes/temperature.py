@@ -1,3 +1,5 @@
+import web
+import json 
 import controller.temperature
 
 class Temperature(object):
