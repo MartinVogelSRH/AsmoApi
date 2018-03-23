@@ -52,7 +52,7 @@ def getDistance():
         if abort:
             return 'No Sensor available or out of Range. Reading Aborted'
         elif distance > 2 and distance < 400:      #Check whether the distance is within range
-            if distance > 4:
+            if distance < 4:
                 controller.motor.setMotors(0,0)
             return str(distance - 0.5) + " cm"  #Print distance with 0.5 cm calibration
         else:
