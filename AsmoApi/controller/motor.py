@@ -1,4 +1,4 @@
-from controller.distance import DistanceController as DistCon
+import controller.distance
 try:
     import RPi.GPIO as GPIO
     import PicoBorgRev
@@ -21,7 +21,7 @@ def setMotors (motor1speed = 0, motor2speed = 0):
     if GPIOAvailable:
         PBR1.SetMotor1(motor1speed)
         PBR1.SetMotor2(motor2speed)
-        DistCon().getDistance() #starting the read of distances. This will stop the motor if the distance is too low.
+        controller.distance.DistanceController().getDistance() #starting the read of distances. This will stop the motor if the distance is too low.
         return "Success"
     else:
         print("not running on a pi. Motor 1 would have been set to: " + str(motor1speed) + " Motor 2 would have been set to: " + str(motor2speed))
