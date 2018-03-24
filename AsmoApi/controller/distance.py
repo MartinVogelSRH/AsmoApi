@@ -11,7 +11,7 @@ if GPIOAvailable:
     GPIO.setmode(GPIO.BCM)
     TRIG_PIN = 21
     ECHO_PIN = 20
-    MAX_DISTANCE = 12
+    MAX_DISTANCE = 20
     GPIO.setup(TRIG_PIN,GPIO.OUT, initial=GPIO.LOW)
     GPIO.setup(ECHO_PIN,GPIO.IN)
 
