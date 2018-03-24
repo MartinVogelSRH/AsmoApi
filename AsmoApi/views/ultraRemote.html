@@ -23,17 +23,11 @@
                         <li class="">
                             <a href="index.html">Home</a>
                         </li>
-                        <li class="">
-                            <a href="camera.html">Kamera</a>
-                        </li>
-                        <li class="">
-                            <a href="remote.html">Fernbedienung</a>
-                        </li>
                         <li class="active">
-                            <a href="ultraRemote.html">Speziell</a>
+                            <a href="camera.html">Camera</a>
                         </li>
                         <li class="">
-                            <a href="terminal.html">Terminal</a>
+                            <a href="ultraRemote.html">Complete Control</a>
                         </li>
                         <li class="">
                             <a href="api/shutdown">Shutdown the system</a>
@@ -42,11 +36,11 @@
                 </div>
             </div>
             <br>
-            <h3 class="text-center">Distanz nach Vorne</h3>
+            <h3 class="text-center">Distance to the front:</h3>
             <h4 id="distance" class="text-center"></h4>
             <br>
             <center>
-                <div><img id="mjpeg_dest"/></div>
+                <div><img id="mjpeg_dest" /></div>
             </center>
             <br>
             <iframe src="" name="toDisplay" hidden="true"></iframe>
@@ -55,7 +49,7 @@
                     <form id="forward" method="POST" action="http://10.0.0.1/motor" target="toDisplay">
                         <input type="text" name="motor1" value="100" class="invisible" hidden="true">
                         <input type="text" name="motor2" value="100" class="invisible" hidden="true">
-                        <input type="submit" name="nothing" value="Vorwaerts" class="btn btn-default center-block">
+                        <input type="submit" name="nothing" value="Forward" class="btn btn-default center-block">
                     </form>
                 </div>
                 <div class="col-md-12">
@@ -63,12 +57,12 @@
                         <form id="left" method="POST" action="http://10.0.0.1/motor" class="col-xs-6 col-sm-6 col-md-6 center-block" target="toDisplay">
                             <input type="text" name="motor1" value="50" class="invisible" hidden="true">
                             <input type="text" name="motor2" value="-100" class="invisible" hidden="true">
-                            <input type="submit" name="nothing" value="Links" class="btn btn-default center-block">
+                            <input type="submit" name="nothing" value="Left" class="btn btn-default center-block">
                         </form>
                         <form id="right" name="right" method="POST" action="http://10.0.0.1/motor" class="col-xs-6 col-sm-6 col-md-6" target="toDisplay">
                             <input type="text" name="motor1" value="-100" class="invisible" hidden="true">
                             <input type="text" name="motor2" value="50" class="invisible" hidden="true">
-                            <input type="submit" name="nothing" value="Rechts" class="btn btn-default center-block">
+                            <input type="submit" name="nothing" value="Rigth" class="btn btn-default center-block">
                         </form>
                     </div>
                 </div>
@@ -76,7 +70,7 @@
                     <form id="back" method="POST" action="http://10.0.0.1/motor" class="" target="toDisplay">
                         <input type="text" name="motor1" value="-100" class="invisible" hidden="true">
                         <input type="text" name="motor2" value="-100" class="invisible" hidden="true">
-                        <input type="submit" name="nothing" value="Rueckwerts" class="btn btn-default center-block">
+                        <input type="submit" name="nothing" value="Back" class="btn btn-default center-block">
                     </form>
                 </div>
                 <div class="row col-md-12">
@@ -87,7 +81,6 @@
                         <input type="submit" name="nothing" value="Stop" class="btn btn-danger center-block">
                     </form>
                 </div>
-
             </div>
         </div>
         <br>
