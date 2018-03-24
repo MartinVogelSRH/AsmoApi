@@ -11,6 +11,7 @@ if GPIOAvailable:
     GPIO.setmode(GPIO.BCM)
     TRIG_PIN = 21
     ECHO_PIN = 20
+    MAX_DISTANCE = 12
     GPIO.setup(TRIG_PIN,GPIO.OUT, initial=GPIO.LOW)
     GPIO.setup(ECHO_PIN,GPIO.IN)
 
@@ -68,7 +69,7 @@ class DistanceController(object):
                 if abort:
                     cls.currentDist = 'No Sensor available or out of Range. Reading Aborted'
                 elif distance > 2 and distance < 400:      #Check whether the distance is within range
-                    if distance < 4:
+                    if distance < MAX_DISTANCE:
                         controller.motor.setMotors(0,0)
                     cls.currentDist = str(distance - 0.5) + " cm"  #Print distance with 0.5 cm calibration
                 else:
