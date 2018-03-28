@@ -10,9 +10,9 @@ except:
 
 if GPIOAvailable:
     GPIO.setmode(GPIO.BCM)
-    TRIG_PIN = 21
-    ECHO_PIN = 20
-    MAX_DISTANCE = 20
+    TRIG_PIN = setting.asmo_config.getint('Distance','trig_pin')
+    ECHO_PIN = setting.asmo_config.getint('Distance','echo_pin')
+    MAX_DISTANCE = setting.asmo_config.getint('Distance','max_distance')
     GPIO.setup(TRIG_PIN,GPIO.OUT, initial=GPIO.LOW)
     GPIO.setup(ECHO_PIN,GPIO.IN)
 

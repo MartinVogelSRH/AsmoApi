@@ -22,7 +22,7 @@ echo 'For this, we follow the instructions from https://www.raspberrypi.org/docu
 SERVICE_FILE="/etc/systemd/system/AsmoAPI.service"
 sudo echo "[Unit]" > $SERVICE_FILE
 sudo echo "Description=Asmo Api" >> $SERVICE_FILE
-sudo echo "After=network.target" >> $SERVICE_FILE
+sudo echo "After=network-online.target" >> $SERVICE_FILE
 sudo echo "[Service]" >> $SERVICE_FILE
 sudo echo "ExecStart=/usr/bin/python ${DIR}/AsmoApi.py" >> $SERVICE_FILE
 sudo echo "WorkingDirectory=${DIR}" >> $SERVICE_FILE
