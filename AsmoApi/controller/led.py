@@ -8,9 +8,9 @@ except:
 if GPIOAvailable:
     GPIO.setmode(GPIO.BCM)
 
-    BLUE_PIN = settings.asmo_config.getint('LED','BLUE_PIN')
-    RED_PIN = settings.asmo_config.getint('LED','RED_PIN')
-    GREEN_PIN = settings.asmo_config.getint('LED','GREEN_PIN')
+    BLUE_PIN = 13;
+    RED_PIN = 19;
+    GREEN_PIN = 26;
 
     GPIO.setup(BLUE_PIN, GPIO.OUT, initial=GPIO.LOW)
     GPIO.setup(RED_PIN, GPIO.OUT, initial=GPIO.LOW)

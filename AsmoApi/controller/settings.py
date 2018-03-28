@@ -12,8 +12,8 @@ def defaultValues():
     asmo_config.set('Distance','MAX_DISTANCE','20')
     asmo_config.add_section('LED')
     asmo_config.set('LED','BLUE_PIN','13')
-    asmo_config.set('LED','RED_PIN','13')
-    asmo_config.set('LED','GREEN_PIN','13')
+    asmo_config.set('LED','RED_PIN','19')
+    asmo_config.set('LED','GREEN_PIN','26')
     asmo_config.add_section('Temperature')
     asmo_config.set('Temperature','DHT_PIN','4')
     with open('Asmo.conf', 'wb') as config_file:
