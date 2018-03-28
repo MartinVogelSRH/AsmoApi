@@ -1,3 +1,4 @@
+import controller.settings as settings
 try:
     import Adafruit_DHT
     GPIOAvailable = True

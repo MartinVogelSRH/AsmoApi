@@ -1,13 +1,13 @@
 import controller.distance
 try:
     import RPi.GPIO as GPIO
-    import PicoBorgRev
+    import controller.PicoBorgRev
     GPIOAvailable = True
 except:
     GPIOAvailable = False
 
 if GPIOAvailable:
-    PBR1 = PicoBorgRev.PicoBorgRev()
+    PBR1 = controller.PicoBorgRev.PicoBorgRev()
     PBR1.Init()
 
 def setMotors (motor1speed = 0, motor2speed = 0):

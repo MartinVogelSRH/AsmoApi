@@ -35,11 +35,14 @@
     <Compile Include="controller\motor.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="controller\settings.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="controller\temperature.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="controller\__init__.py" />
-    <Compile Include="PicoBorgRev.py" />
+    <Compile Include="controller\PicoBorgRev.py" />
     <Compile Include="routes\distance.py">
       <SubType>Code</SubType>
     </Compile>
@@ -72,6 +75,7 @@
     <InterpreterReference Include="Global|PythonCore|2.7" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Asmo.conf" />
     <Content Include="Install.sh">
       <SubType>Code</SubType>
     </Content>
@@ -80,19 +84,6 @@
     <Content Include="static\favicon.ico" />
     <Content Include="views\camera.html" />
     <Content Include="views\index.html" />
-    <Content Include="static\streaming\stream-00000555.ts" />
-    <Content Include="static\streaming\stream-00000556.ts" />
-    <Content Include="static\streaming\stream-00000557.ts" />
-    <Content Include="static\streaming\stream-00000558.ts" />
-    <Content Include="static\streaming\stream-00000559.ts" />
-    <Content Include="static\streaming\stream-00000560.ts" />
-    <Content Include="static\streaming\stream-00000561.ts" />
-    <Content Include="static\streaming\stream-00000562.ts" />
-    <Content Include="static\streaming\stream-00000563.ts" />
-    <Content Include="static\streaming\stream-00000564.ts" />
-    <Content Include="static\streaming\stream-00000565.ts" />
-    <Content Include="static\streaming\stream-00000566.ts" />
-    <Content Include="static\streaming\stream.m3u8" />
     <Content Include="views\ultraRemote.html" />
     <Content Include="static\vendor\bootstrap.min.css" />
     <Content Include="static\vendor\bootstrap.min.js" />
@@ -108,7 +99,7 @@
     <Folder Include="C:\Users\marti\OneDrive\SRH Stuff\Applied Research - ASMO\AsmoApi\AsmoApi\static\streaming\" />
     <Folder Include="C:\Users\marti\OneDrive\SRH Stuff\Applied Research - ASMO\AsmoApi\AsmoApi\static\vendor\" />
     <Folder Include="static\" />
-    <Folder Include="static\streaming\" />
+    <Folder Include="static\documentation\" />
     <Folder Include="static\vendor\" />
     <Folder Include="C:\Users\marti\OneDrive\SRH Stuff\Applied Research - ASMO\AsmoApi\AsmoApi\views\" />
     <Folder Include="views\" />

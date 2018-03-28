@@ -9,6 +9,7 @@ from routes.shutdown import Shutdown
 from routes.favicon import Favicon
 import controller.led
 import time
+import controller.settings as settings
 
 PossibleUrls = (
                 '/api/motor', 'Motor',
@@ -23,6 +24,8 @@ PossibleUrls = (
                 '/', 'Index'
 )
 
+port_num = settings.asmo_config.getint('Server','port')
+
 def cleanup():
     print ('cleaning up before exit..')
     try:
@@ -32,15 +35,16 @@ def cleanup():
         print('nothing')
 
 if __name__ == "__main__":
-    controller.led.toogleAllOff()
-    controller.led.toogleColor('green')
+    controller.led.toggleAllOff()
+    controller.led.toggleColor('green')
     Server = web.application(PossibleUrls,globals())
+
     try:
-        Server.run()
+        web.httpserver.runsimple(Server.wsgifunc(), ("0.0.0.0", port_num))
     except Exception as e:
         print('An Error occurred:\n' + str(e))
-        controller.led.toogleAllOff()
-        controller.led.toogleColor('red')
+        controller.led.toggleAllOff()
+        controller.led.toggleColor('red')
         time.sleep(5)
     finally:
         cleanup()

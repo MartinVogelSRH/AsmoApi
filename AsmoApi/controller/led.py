@@ -1,3 +1,4 @@
+import controller.settings as settings
 try:
     import RPi.GPIO as GPIO
     GPIOAvailable = True
@@ -7,15 +8,15 @@ except:
 if GPIOAvailable:
     GPIO.setmode(GPIO.BCM)
 
-    BLUE_PIN = 13;
-    RED_PIN = 19;
-    GREEN_PIN = 26;
+    BLUE_PIN = settings.asmo_config.getint('LED','BLUE_PIN')
+    RED_PIN = settings.asmo_config.getint('LED','RED_PIN')
+    GREEN_PIN = settings.asmo_config.getint('LED','GREEN_PIN')
 
     GPIO.setup(BLUE_PIN, GPIO.OUT, initial=GPIO.LOW)
     GPIO.setup(RED_PIN, GPIO.OUT, initial=GPIO.LOW)
     GPIO.setup(GREEN_PIN, GPIO.OUT, initial=GPIO.LOW)
 
-def toogleAllOff():
+def toggleAllOff():
     if GPIOAvailable:
         GPIO.output(BLUE_PIN, GPIO.LOW)
         GPIO.output(RED_PIN, GPIO.LOW)
@@ -24,7 +25,7 @@ def toogleAllOff():
     else:
         return "Not running on a pi or RPi.GPIO library not installed"
 
-def toogleColor(color = None):
+def toggleColor(color = None):
     if GPIOAvailable:
         if color == 'red':
             GPIO.output(RED_PIN, not GPIO.input(RED_PIN))

@@ -1,6 +1,7 @@
 import controller.motor
 import time
 import threading
+import controller.settings as settings
 try:
     import RPi.GPIO as GPIO
     GPIOAvailable = True
@@ -24,11 +25,11 @@ class DistanceController(object):
 
     def initialize(self):
         if DistanceController.thread is None:
-            # start background frame thread
+            # start background thread
             DistanceController.currentDist = None
             DistanceController.thread = threading.Thread(target=self._thread)
             DistanceController.thread.start()
-            # wait until frames start to be available
+            # wait until the distance start to be available
             while self.currentDist is None:
                 time.sleep(0)
 
@@ -41,7 +42,7 @@ class DistanceController(object):
         if GPIOAvailable:
             motor1speed , motor2speed = controller.motor.getMotors()
             while ((time.time() - cls.last_access < 10) or (motor1speed != 0) or (motor2speed != 0)):
-                print ('motor1: ' + str(motor1speed) + ' motor2: ' + str(motor2speed) + ' reding dist..')
+                #print ('motor1: ' + str(motor1speed) + ' motor2: ' + str(motor2speed) + ' reding dist..')
                 GPIO.output(TRIG_PIN, False)                 #Set TRIG as LOW
                 time.sleep(2)                            #Delay of 2 seconds. This is a initialization timeframe. This should possibly be reduced.
 
@@ -65,7 +66,7 @@ class DistanceController(object):
 
                 distance = pulse_duration * 17150        #Multiply pulse duration by 17150 (speed of sound in air / 2) to get distance
                 distance = round(distance, 2)            #Round to two decimal points
-        
+                motor1speed , motor2speed = controller.motor.getMotors()
                 if abort:
                     cls.currentDist = 'No Sensor available or out of Range. Reading Aborted'
                 elif distance > 2 and distance < 400:      #Check whether the distance is within range
