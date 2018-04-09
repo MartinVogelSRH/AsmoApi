@@ -81,6 +81,10 @@
     </Content>
     <Content Include="static\Asmo.jpg" />
     <Content Include="static\Asmo_Favicon.jpg" />
+    <Content Include="static\documentation\ASMO_wiring.fzz" />
+    <Content Include="static\documentation\Documentation.docx" />
+    <Content Include="static\documentation\QuickStart.docx" />
+    <Content Include="static\documentation\Sensor kit V1.0 for Rpi B+.pdf" />
     <Content Include="static\favicon.ico" />
     <Content Include="views\camera.html" />
     <Content Include="views\index.html" />
@@ -100,6 +104,7 @@
     <Folder Include="C:\Users\marti\OneDrive\SRH Stuff\Applied Research - ASMO\AsmoApi\AsmoApi\static\vendor\" />
     <Folder Include="static\" />
     <Folder Include="static\documentation\" />
+    <Folder Include="static\streaming\" />
     <Folder Include="static\vendor\" />
     <Folder Include="C:\Users\marti\OneDrive\SRH Stuff\Applied Research - ASMO\AsmoApi\AsmoApi\views\" />
     <Folder Include="views\" />
