@@ -6,7 +6,7 @@ except:
     GPIOAvailable = False
 
 if GPIOAvailable:
-    DHT_PIN = setting.asmo_config.getint('Temperature','dht_pin')
+    DHT_PIN = settings.asmo_config.getint('Temperature','dht_pin')
 
 def getTemperature():
     if GPIOAvailable:
