@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AsmoMobile"
+             x:Class="AsmoMobile.MainPage">
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="7*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+        
+        <Label Text="Asmo Mobile Control!" HorizontalOptions="Center" Grid.Row="0" />
+        <Grid x:Name="grid_Speed" Grid.Row="1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <StackLayout Grid.Column="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Label  Text="Speed:"></Label>
+                <Label x:Name="lbl_speed"></Label>
+                <Label  Text="Direction:"></Label>
+                <Label x:Name="lbl_direction"></Label>
+                <WebView Source="http://localhost:8080/api/camera/SinglePicture" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></WebView>
+            </StackLayout>
+            
+            <Slider x:Name="sliSpeed" BindingContext="{x:Reference Name=grid_Speed}" HeightRequest="{Binding Path=Height}" Grid.Column="1" Value="0" Minimum="0" Maximum="100" ValueChanged="sliSpeedValueChanged" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  Rotation="-90"></Slider>
+        </Grid>
+        <Slider x:Name="sliDirection" HorizontalOptions="FillAndExpand"  Grid.Row="2" Minimum="-100" Maximum="100" ValueChanged="sliDirectionValueChanged"></Slider>
+    </Grid>
+
+
+</ContentPage>
