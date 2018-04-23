@@ -3,28 +3,28 @@ import ConfigParser
 
 
 def defaultValues():
-    #asmo_config = ConfigParser.SafeConfigParser()
-    asmo_config.add_section('Server')
-    asmo_config.set('Server','PORT','8080')
-    asmo_config.add_section('Distance')
-    asmo_config.set('Distance','TRIG_PIN','21')
-    asmo_config.set('Distance','ECHO_PIN','20')
-    asmo_config.set('Distance','MAX_DISTANCE','20')
-    asmo_config.add_section('LED')
-    asmo_config.set('LED','BLUE_PIN','13')
-    asmo_config.set('LED','RED_PIN','19')
-    asmo_config.set('LED','GREEN_PIN','26')
-    asmo_config.add_section('Temperature')
-    asmo_config.set('Temperature','DHT_PIN','4')
+    #configuration = ConfigParser.SafeConfigParser()
+    configuration.add_section('Server')
+    configuration.set('Server','PORT','8080')
+    configuration.add_section('Distance')
+    configuration.set('Distance','TRIG_PIN','21')
+    configuration.set('Distance','ECHO_PIN','20')
+    configuration.set('Distance','MAX_DISTANCE','20')
+    configuration.add_section('LED')
+    configuration.set('LED','BLUE_PIN','13')
+    configuration.set('LED','RED_PIN','19')
+    configuration.set('LED','GREEN_PIN','26')
+    configuration.add_section('Temperature')
+    configuration.set('Temperature','DHT_PIN','4')
     with open('Asmo.conf', 'wb') as config_file:
-        asmo_config.write(config_file)
+        configuration.write(config_file)
 
-asmo_config = ConfigParser.SafeConfigParser()
+configuration = ConfigParser.SafeConfigParser()
 
 try:
     #with open('Asmo.conf','r') as config_file:
-    asmo_config.read('Asmo.conf')
-    print(asmo_config.get('Server','port'))
+    configuration.read('Asmo.conf')
+    print(configuration.get('Server','port'))
 except:
     defaultValues()
 

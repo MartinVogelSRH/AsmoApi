@@ -9,10 +9,14 @@ namespace AsmoMobile
 {
 	public partial class App : Application
 	{
+        public static string _hostAsmo;
+        public static string _portAsmo;
+
 		public App ()
 		{
 			InitializeComponent();
-
+            _hostAsmo = "10.0.0.1";
+            _portAsmo = "8080";
 			MainPage = new AsmoMobile.MainPage();
 		}
 

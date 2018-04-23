@@ -7,6 +7,7 @@ from routes.camera import Camera
 from routes.temperature import Temperature
 from routes.shutdown import Shutdown
 from routes.favicon import Favicon
+from routes.settings import Settings
 import controller.led
 import time
 import controller.settings as settings
@@ -19,12 +20,14 @@ PossibleUrls = (
                 '/api/led', 'Led',
                 '/api/temperature', 'Temperature',
                 '/api/shutdown', 'Shutdown',
+                '/api/settings/(.*)/(.*)', 'Settings',
+                '/api/settings/(.*)', 'Settings',
                 '/favicon.ico', 'Favicon',
                 '/(.*)', 'Index',
                 '/', 'Index'
 )
 
-port_num = settings.asmo_config.getint('Server','port')
+port_num = settings.configuration.getint('Server','port')
 
 def cleanup():
     print ('cleaning up before exit..')

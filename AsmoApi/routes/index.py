@@ -1,7 +1,5 @@
 import web
 
-
-
 class Index(object):
     """description of class"""
 
