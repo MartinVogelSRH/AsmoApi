@@ -28,6 +28,7 @@ class DistanceController(object):
             # start background thread
             DistanceController.currentDist = None
             DistanceController.thread = threading.Thread(target=self._thread)
+            DistanceController.thread.daemon = True
             DistanceController.thread.start()
             # wait until the distance start to be available
             while self.currentDist is None:

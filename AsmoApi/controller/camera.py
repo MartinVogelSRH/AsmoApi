@@ -18,6 +18,7 @@ class CameraController(object):
         if CameraController.thread is None:
             # start background frame thread
             CameraController.thread = threading.Thread(target=self._thread)
+            CameraController.thread.daemon = True
             CameraController.thread.start()
 
             # wait until frames start to be available
