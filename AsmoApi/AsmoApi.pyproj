@@ -64,7 +64,7 @@
     <Compile Include="routes\settings.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="routes\shutdown.py">
+    <Compile Include="routes\system.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="routes\temperature.py">
@@ -90,6 +90,7 @@
     <Content Include="static\documentation\Sensor kit V1.0 for Rpi B+.pdf" />
     <Content Include="static\favicon.ico" />
     <Content Include="views\camera.html" />
+    <Content Include="views\systemControl.html" />
     <Content Include="views\index.html" />
     <Content Include="views\ultraRemote.html" />
     <Content Include="static\vendor\bootstrap.min.css" />

@@ -5,7 +5,7 @@ from routes.led import Led
 from routes.motor import Motor
 from routes.camera import Camera
 from routes.temperature import Temperature
-from routes.shutdown import Shutdown
+from routes.system import System
 from routes.favicon import Favicon
 from routes.settings import Settings
 import controller.led
@@ -19,7 +19,9 @@ PossibleUrls = (
                 '/api/camera/(.*)',  'Camera',
                 '/api/led', 'Led',
                 '/api/temperature', 'Temperature',
-                '/api/shutdown', 'Shutdown',
+                '/api/system', 'System',
+                '/api/system/(.*)', 'System',
+                '/api/settings', 'Settings',
                 '/api/settings/(.*)/(.*)', 'Settings',
                 '/api/settings/(.*)', 'Settings',
                 '/favicon.ico', 'Favicon',
@@ -43,7 +45,7 @@ if __name__ == "__main__":
     Server = web.application(PossibleUrls,globals())
 
     try:
-        web.httpserver.runsimple(Server.wsgifunc(), ("0.0.0.0", port_num))
+        web.httpserver.runsimple(Server.wsgifunc(), ("127.0.0.1", port_num))
     except Exception as e:
         print('An Error occurred:\n' + str(e))
         controller.led.toggleAllOff()

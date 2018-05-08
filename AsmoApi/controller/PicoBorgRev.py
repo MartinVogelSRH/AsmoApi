@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# coding: latin-1
 """
 This module is designed to communicate with the PicoBorg Reverse
 

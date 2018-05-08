@@ -1,0 +1,2 @@
+# AsmoApi requirements.txt 
+web.py

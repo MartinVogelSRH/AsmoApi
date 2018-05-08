@@ -14,7 +14,8 @@
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
     </head>
-    <body onload="setTimeout('init();', 100);">
+    <body>
+
         <br>
         <div class="container">
             <div class="row">
@@ -23,13 +24,13 @@
                         <li class="">
                             <a href="index.html">Home</a>
                         </li>
-                        <li class="active">
+                        <li class="">
                             <a href="camera.html">Camera</a>
                         </li>
                         <li class="">
                             <a href="ultraRemote.html">Complete Control</a>
                         </li>
-                        <li class="">
+                        <li class="active">
                             <a href="systemControl.html">System Control</a>
                         </li>
                         <li class="">
@@ -38,32 +39,22 @@
                     </ul>
                 </div>
             </div>
-        </div>
-        <br>
+            <iframe src="" name="toDisplay" hidden="true"></iframe>
+            <br>
 
-        <center>
-            <div><img id="mjpeg_dest"/></div>
-        </center>
+            <div class="">
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="/api/system/shutdown">Shutdown</a></li>
+                    <li class="list-group-item"><a href="/api/system/reboot">Reboot</a></li>
+                    <li class="list-group-item"><a href="/api/system/restartServer">Restart the Server</a></li>
+                </ul>
+            </div>
+        </div>
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="../static/vendor/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="../static/vendor/bootstrap.min.js"></script>
-        <script type="text/javascript">
-            var mjpeg_img;
 
-            function reload_img() {
-                mjpeg_img.src = "http://" + window.location.host + "/api/camera/Stream"
-            }
-            function error_img() {
-                setTimeout("mjpeg_img.src = 'http://" + window.location.host + "/api/camera/SinglePicture", 100);
-            }
-            function init() {
-                mjpeg_img = document.getElementById("mjpeg_dest");
-                mjpeg_img.onload = reload_img;
-                mjpeg_img.onerror = error_img;
-                reload_img();
-            }
-        </script>
     </body>
 </html>

@@ -1,7 +1,9 @@
 import ConfigParser
 
 
-
+def save():
+    with open('Asmo.conf', 'wb') as config_file:
+        configuration.write(config_file)
 def defaultValues():
     #configuration = ConfigParser.SafeConfigParser()
     configuration.add_section('Server')
@@ -16,8 +18,7 @@ def defaultValues():
     configuration.set('LED','GREEN_PIN','26')
     configuration.add_section('Temperature')
     configuration.set('Temperature','DHT_PIN','4')
-    with open('Asmo.conf', 'wb') as config_file:
-        configuration.write(config_file)
+    save()
 
 configuration = ConfigParser.SafeConfigParser()
 
@@ -28,5 +29,18 @@ try:
 except:
     defaultValues()
 
+def setValues(newSettings):
+    try:
+        for section in newSettings:
+            for setting in newSettings[section]:
+                if configuration.has_section(section):
+                    configuration.set(section,setting[0],setting[1])
+                else:
+                    configuration.add_section(section)
+                    configuration.set(section,setting[0],setting[1])
+        save()
+        return 'Successfully changed the settings. Please restart the server to reload them.'
+    except Exception as e:
+        return e
 
 
