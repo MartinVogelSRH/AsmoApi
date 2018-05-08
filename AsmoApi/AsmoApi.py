@@ -45,7 +45,7 @@ if __name__ == "__main__":
     Server = web.application(PossibleUrls,globals())
 
     try:
-        web.httpserver.runsimple(Server.wsgifunc(), ("127.0.0.1", port_num))
+        web.httpserver.runsimple(Server.wsgifunc(), ("0.0.0.0", port_num))
     except Exception as e:
         print('An Error occurred:\n' + str(e))
         controller.led.toggleAllOff()
